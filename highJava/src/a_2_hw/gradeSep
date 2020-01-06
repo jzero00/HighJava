@@ -1,0 +1,18 @@
+package a_CollectionFramework.Homework;
+
+public class gradeSep {
+
+	
+	
+	
+	public static void main(String[] args) {
+		
+		
+
+	}
+
+}
+
+class Member implements Comparable<Member>{
+	priv
+}
