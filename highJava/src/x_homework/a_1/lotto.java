@@ -1,6 +1,7 @@
-package a_1_lotto;
+package x_homework.a_1;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class lotto {
@@ -25,24 +26,9 @@ public class lotto {
 			int cnt = money / 1000;
 			
 			for (int i = 0; i < cnt; i++) {
-				ArrayList<Integer> lotto = new ArrayList<Integer>();
-				for(int j = 0; j <= 5; j++) {
-					lotto.add((int)(Math.random() * 45) + 1);
-
-					
-					
-					
-					
-					if(j==0) {					
-						System.out.print("로또번호" + (j+1) + ": ");
-					}
-					if (j == 5) {
-						System.out.print(lotto.get(j));
-					}else {
-						System.out.print(lotto.get(j) + ", ");
-					}
-				}
-				System.out.println();				
+				System.out.print("로또 번호 " + (i+1) + ": ");
+				makeNumber();
+				System.out.println();
 			}
 
 
@@ -57,6 +43,23 @@ public class lotto {
 		}
 
 
+	}
+	
+	
+	static void makeNumber(){
+		ArrayList<Integer> number = new ArrayList<>();
+		for (int i = 1 ; i < 46; i++) {
+			number.add(i);
+		}
+		
+		Collections.shuffle(number);
+		
+		ArrayList<Integer> output = new ArrayList<>();
+		for(int i = 1; i <= 6; i++) {
+			output.add(number.get(i));
+		}
+		Collections.sort(output);
+		System.out.print(output);
 	}
 	/*
 	 *  로또를 구매하는 프로그램 작성하기

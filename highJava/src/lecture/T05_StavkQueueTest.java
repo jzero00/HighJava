@@ -1,4 +1,4 @@
-package basic;
+package lecture;
 
 import java.util.LinkedList;
 

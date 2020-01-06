@@ -83,7 +83,7 @@ public class CollectionInterface {
 		System.out.println(list);
 		list.add(2);
 		System.out.println(list);
-		list.
+//		list.
 		
 		
 		

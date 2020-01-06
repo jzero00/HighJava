@@ -1,4 +1,4 @@
-package basic;
+package lecture;
 
 /*
  * 	제너릭 클래스를 만드는 방법
