@@ -1,4 +1,4 @@
-package set;
+package x_practice;
 
 import java.util.HashSet;
 
