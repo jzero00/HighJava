@@ -1,4 +1,4 @@
-package x_homework.a_1;
+package a_CollectionFramework;
 
 import java.util.ArrayList;
 import java.util.Collections;
