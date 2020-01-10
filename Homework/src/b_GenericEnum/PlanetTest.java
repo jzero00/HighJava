@@ -25,41 +25,29 @@ public class PlanetTest {
 		천왕성(25362), 
 		해왕성(24622);
 		
-		private int num;
+		private int radius;
 		
-		private Planet(int num) {
-			this.num = num;
+		private Planet(int radius) {
+			this.radius = radius;
 		}
 		
 		public int getR(){
-			return num;
+			return radius;
+		}
+		
+		public double getSurface() {
+			return 4 * PHI * Math.pow(radius, 2);
 		}
 	}
 
 	private static final double PHI = 3.14;
 	
 	public static void main(String[] args) {
-		Planet p0 = Planet.수성;
-		Planet p1 = Planet.금성;
-		Planet p2 = Planet.지구;
-		Planet p3 = Planet.화성;
-		Planet p4 = Planet.목성;
-		Planet p5 = Planet.토성;
-		Planet p6 = Planet.천왕성;
-		Planet p7 = Planet.해왕성;
 		
+		Planet[] pn = Planet.values();
 		
-		
-		System.out.println(p0.ordinal() + 1 + "번째 별 : " + p0.name() + " : " + "표면적 넓이 : " + (p0.getR())*(p0.getR())*4*PHI +"제곱km 입니다.");
-		System.out.println(p1.ordinal() + 1 + "번째 별 : " + p1.name() + " : " + "표면적 넓이 : " + (p1.getR())*(p1.getR())*4*PHI +"제곱km 입니다.");
-		System.out.println(p2.ordinal() + 1 + "번째 별 : " + p2.name() + " : " + "표면적 넓이 : " + (p2.getR())*(p2.getR())*4*PHI +"제곱km 입니다.");
-		System.out.println(p3.ordinal() + 1 + "번째 별 : " + p3.name() + " : " + "표면적 넓이 : " + (p3.getR())*(p3.getR())*4*PHI +"제곱km 입니다.");
-		System.out.println(p4.ordinal() + 1 + "번째 별 : " + p4.name() + " : " + "표면적 넓이 : " + (long)(p4.getR())*(p4.getR())*4*PHI +"제곱km 입니다.");
-		System.out.println(p5.ordinal() + 1 + "번째 별 : " + p5.name() + " : " + "표면적 넓이 : " + (p5.getR())*(p5.getR())*4*PHI +"제곱km 입니다.");
-		System.out.println(p6.ordinal() + 1 + "번째 별 : " + p6.name() + " : " + "표면적 넓이 : " + (long)(p6.getR())*(p6.getR())*4*PHI +"제곱km 입니다.");
-		System.out.println(p7.ordinal() + 1 + "번째 별 : " + p7.name() + " : " + "표면적 넓이 : " + (long)(p7.getR())*(p7.getR())*4*PHI +"제곱km 입니다.");
-
-
-		
+		for(int i = 0; i < pn.length; i++) {
+			System.out.println(pn[i].name() + " : " + pn[i].getSurface() + "km²");
+		}
 	}
 }
