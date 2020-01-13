@@ -37,12 +37,12 @@ public class JdbcSample {
 			System.out.println("데이터베이스의 연결에 성공하였습니다.");
 			
 			// 5. SQL
-			String sql = "SELECT COUNT(*) cnt FROM jdbc_board WHERE board_no = 1";
+			String sql = "SELECT * FROM lprod";
 			rs = stmt.executeQuery(sql);
 			
 			
 			while(rs.next()) {
-				System.out.println(rs.getString("cnt") /*+ rs.getString("lprod_nm")*/);
+				System.out.println(rs.getString("lprod_id") + rs.getString("lprod_nm"));
 			}
 			rs.close();
 			stmt.close();
