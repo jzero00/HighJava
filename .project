@@ -3,6 +3,8 @@
 	<name>HighJava</name>
 	<comment></comment>
 	<projects>
+		<project>Homework</project>
+		<project>Lecture</project>
 	</projects>
 	<buildSpec>
 	</buildSpec>

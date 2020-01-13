@@ -5,8 +5,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class HotelReservation {
@@ -32,10 +30,10 @@ public class HotelReservation {
 			conn = DriverManager.getConnection(url, id, pw);
 			stmt = conn.createStatement();
 			System.out.println("데이터베이스의 연결에 성공하였습니다.");
-			
+
 			startMenu(stmt, rs);
-			
-//			rs.close();
+
+			rs.close();
 			stmt.close();
 			conn.close();
 		} catch (ClassNotFoundException | SQLException e) {
@@ -44,7 +42,7 @@ public class HotelReservation {
 
 	}
 
-	private static void startMenu(Statement stmt, ResultSet rs) {
+	private static void startMenu(Statement stmt, ResultSet rs) throws SQLException {
 
 
 		boolean flag = true;
@@ -78,7 +76,7 @@ public class HotelReservation {
 	}
 
 
-	private static void checkIn(Statement stmt ,ResultSet rs) {
+	private static void checkIn(Statement stmt ,ResultSet rs) throws SQLException {
 		String room;
 		String name;
 		Scanner s = new Scanner(System.in);
@@ -89,82 +87,39 @@ public class HotelReservation {
 				+ "이름 입력 => ");
 		name = s.nextLine();
 
-		String checkSql = "SELECT * FROM hotel_mng WHERE room_num " + room;
-		try {
-			rs = stmt.executeQuery(checkSql);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		if (rs != null) {
-			System.out.println(room + "방에는 이미 사람이 있습니다.");
-			return;
-		}else {
-			String sql = "INSERT INTO hotel_mng (room_num, guest_name) VALUES(" + room + ",'" + name + "')";
-			try {
-				stmt.executeUpdate(sql);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-			System.out.println("체크인 되었습니다.");
-		}
+		String sql = "INSERT INTO hotel_mng (room_num, guest_name) VALUES(" + room + ",'" + name + "')";
+		stmt.executeUpdate(sql);
 
+		System.out.println("체크인 되었습니다.");
 	}
 
-	private static void checkOut(Statement stmt, ResultSet rs) {
+	private static void checkOut(Statement stmt, ResultSet rs) throws SQLException {
 
 		Scanner s = new Scanner(System.in);
 		System.out.println("어느방을 체크아웃 하시겠습니까?");
 		System.out.print("방번호 입력 => ");
 		String room = s.nextLine();
 
-		String checkSql = "SELECT * FROM hotel_mng WHERE room_num " + room;
-		try {
-			rs = stmt.executeQuery(checkSql);
-		} catch (SQLException e1) {
-			e1.printStackTrace();
-		}
-		try {
-			if (rs != null) {
-				System.out.println(room + "방에는 이미 사람이 있습니다.");
-				return;
-			}else {
-				String sql = "DELETE TABLE FROM hotel_mng WHERE room_num = " + room;
-				stmt.executeUpdate(sql);
-				System.out.println("체크아웃 되었습니다.");
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
 
+		String sql = "DELETE FROM hotel_mng WHERE room_num = " + room;
 
+		stmt.executeUpdate(sql);
 
+		System.out.println("체크아웃 되었습니다.");
 	}
 
-	private static void roomStatus(Statement stmt, ResultSet rs) {
+
+
+
+
+	private static void roomStatus(Statement stmt, ResultSet rs) throws SQLException {
 
 		String checkSql = "SELECT * FROM hotel_mng";
-		try {
 			rs = stmt.executeQuery(checkSql);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		if (rs == null) {
-			System.out.println("현재 투숙객이 존재하지 않습니다.\r\n");
-			return;
-		}
-		try {
+		
 			while(rs.next()) {
-				try {
-					System.out.println("방 번호 : " + rs.getInt("room_num") + "\t이름 : " + rs.getString("guest_name"));
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
+				System.out.println("방 번호 : " + rs.getInt("room_num") + "\t이름 : " + rs.getString("guest_name"));
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-
 	}
 
 
