@@ -290,10 +290,10 @@ public class BoardTest {
 	 */
 	private void disconnect() {
 		//사용했던 자원 반납
-		if(rs!=null)try{ rs.close(); }catch(SQLException ee){}
-		if(stmt!=null)try{ stmt.close(); }catch(SQLException ee){}
-		if(pstmt!=null)try{ pstmt.close(); }catch(SQLException ee){}
-		if(conn!=null)try{ conn.close(); }catch(SQLException ee){}
+		if(rs!=null) try { rs.close(); } catch (SQLException ee){}
+		if(stmt!=null) try { stmt.close(); } catch (SQLException ee){}
+		if(pstmt!=null) try { pstmt.close(); } catch (SQLException ee){}
+		if(conn!=null) try { conn.close(); } catch (SQLException ee){}
 	}
 
 	public static void main(String[] args) {
