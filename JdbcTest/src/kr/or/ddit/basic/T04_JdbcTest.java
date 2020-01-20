@@ -78,9 +78,7 @@ public class T04_JdbcTest {
 				if(count > 0) {
 					System.out.println("lprod_gu " + gu + "는 이미 있는 상품입니다.");
 				}
-			}while(count > 0) {
-				
-			}
+			}while(count > 0);
 			
 			
 			
