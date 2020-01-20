@@ -25,11 +25,11 @@ public class HotelReservation {
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			System.out.println("OracleDriver의 로딩이 정상적으로 이뤄졌습니다.");
+			//			System.out.println("OracleDriver의 로딩이 정상적으로 이뤄졌습니다.");
 
 			conn = DriverManager.getConnection(url, id, pw);
 			stmt = conn.createStatement();
-			System.out.println("데이터베이스의 연결에 성공하였습니다.");
+			//			System.out.println("데이터베이스의 연결에 성공하였습니다.");
 
 			startMenu(stmt, rs);
 
@@ -38,6 +38,10 @@ public class HotelReservation {
 			conn.close();
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
+		} finally {
+			if(rs != null) try {rs.close();}catch (SQLException e2) {}
+			if(stmt != null) try {stmt.close();}catch (SQLException e2) {}
+			if(conn != null) try {conn.close();}catch (SQLException e2) {}
 		}
 
 	}
@@ -87,11 +91,19 @@ public class HotelReservation {
 				+ "이름 입력 => ");
 		name = s.nextLine();
 
+		//		String checkSql = "SELECT * FROM hotel_mng WHERE room_num " + room;
+		//		rs = stmt.executeQuery(checkSql);
+
+		/*		if (rs != null) {
+			System.out.println(room + "방에는 이미 사람이 있습니다.");
+			return;
+		}else {*/
 		String sql = "INSERT INTO hotel_mng (room_num, guest_name) VALUES(" + room + ",'" + name + "')";
 		stmt.executeUpdate(sql);
-
 		System.out.println("체크인 되었습니다.");
+		//		}
 	}
+
 
 	private static void checkOut(Statement stmt, ResultSet rs) throws SQLException {
 
@@ -115,23 +127,24 @@ public class HotelReservation {
 	private static void roomStatus(Statement stmt, ResultSet rs) throws SQLException {
 
 		String checkSql = "SELECT * FROM hotel_mng";
-			rs = stmt.executeQuery(checkSql);
-		
-			while(rs.next()) {
-				System.out.println("방 번호 : " + rs.getInt("room_num") + "\t이름 : " + rs.getString("guest_name"));
-			}
+		rs = stmt.executeQuery(checkSql);
+
+		while(rs.next()) {
+			System.out.println("방 번호 : " + rs.getInt("room_num") + "\t이름 : " + rs.getString("guest_name"));
+		}
 	}
 
 
-	private static void terminate() {
+	private static void terminate(){
 
 		System.out.println("**************************\r\n" + 
-				"* \r\n" + 
-				"* 호텔 문을 닫았습니다.\r\n" + 
-				"**************************");
+							"* \r\n" + 
+							"* 호텔 문을 닫았습니다.\r\n" + 
+							"**************************");
 
 	}
 }
+
 class Hotel{
 
 	private String room; // 방번호
