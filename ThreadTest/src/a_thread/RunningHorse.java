@@ -1,4 +1,4 @@
-package d_Thread;
+package a_thread;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -62,7 +62,7 @@ class PrintHorse extends Thread {
 				for (int i = 0; i < 50; i++) {
 					arr[i] = "-";
 					if (h2.getSection() == i) {
-						arr[i] = ">";
+						arr[i] = "▶";
 					}
 				}
 
@@ -99,7 +99,7 @@ class PrintHorse extends Thread {
 		}
 		Collections.sort(list);
 		for (Horse h2 : list) {
-			System.out.printf(h2.getRank() + "등  :" + h2.getHName());
+			System.out.print(h2.getRank() + "등  :" + h2.getHName());
 			System.out.println();
 		}
 		System.exit(0);
@@ -151,7 +151,7 @@ class Horse extends Thread implements Comparable<Horse>{
 		while (true) {
 			section += cnt;
 			try {
-				Thread.sleep(1000 * (int) (Math.random() * 4));
+				Thread.sleep(100 * (int) (Math.random() * 4));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -168,7 +168,7 @@ class Horse extends Thread implements Comparable<Horse>{
 	@Override
 	public int compareTo(Horse horse) {
 		
-		return new Integer(horse.getRank()).compareTo(new Integer(horse.getRank()));
+		return (Integer)(horse.getRank()) * 1;
 	}
 }
 
