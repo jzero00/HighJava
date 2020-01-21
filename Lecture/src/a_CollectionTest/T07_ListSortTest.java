@@ -45,7 +45,7 @@ public class T07_ListSortTest {
 
 /**
  * 정렬 기준의 외부 선언을 위해서는 Comparator 인터페이스를 구현하면 된다.
- * Memberdml 번호 (num)의 내림차순으로 정리하기
+ * Member의 번호 (num)의 내림차순으로 정리하기
  *
  */
 
