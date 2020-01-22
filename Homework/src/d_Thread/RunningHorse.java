@@ -62,7 +62,7 @@ class PrintHorse extends Thread {
 				for (int i = 0; i < 50; i++) {
 					arr[i] = "-";
 					if (h2.getSection() == i) {
-						arr[i] = ">";
+						arr[i] = "▶";
 					}
 				}
 
@@ -99,7 +99,7 @@ class PrintHorse extends Thread {
 		}
 		Collections.sort(list);
 		for (Horse h2 : list) {
-			System.out.printf(h2.getRank() + "등  :" + h2.getHName());
+			System.out.print(h2.getRank() + "등  :" + h2.getHName());
 			System.out.println();
 		}
 		System.exit(0);
@@ -167,16 +167,8 @@ class Horse extends Thread implements Comparable<Horse>{
 
 	@Override
 	public int compareTo(Horse horse) {
-		
-		return new Integer(horse.getRank()).compareTo(new Integer(horse.getRank()));
+		return Integer.compare(this.rank, horse.getRank());		
 	}
+		
+	
 }
-
-//class SortRankAsc implements Comparator<Horse2>{
-//
-//	@Override
-//	public int compare(Horse2 h1, Horse2 h2) {
-//
-//		return new Integer(h1.getRank()).compareTo(h2.getRank());
-//	}
-//}

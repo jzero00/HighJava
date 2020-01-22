@@ -25,7 +25,7 @@ public class HorseRacingAlpha {
 			horse.start();
 		}
 		
-		PrintHorse ph = new PrintHorse(list);
+//		PrintHorse ph = new PrintHorse(list);
 
 	}
 
