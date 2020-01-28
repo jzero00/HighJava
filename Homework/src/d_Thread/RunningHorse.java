@@ -47,7 +47,7 @@ class PrintHorse extends Thread {
 		while (running) {
 
 			for (Horse h2 : list) {
-				if(h2.isGoal() == true) {
+				if (h2.isGoal() == true) {
 					System.out.print(h2.getHName() + ": ");
 					for (int j = 0; j < 50; j++) {
 						arr[j] = "*";
@@ -66,23 +66,22 @@ class PrintHorse extends Thread {
 					}
 				}
 
-
 				// 말 10마리 출력
 				for (int j = 0; j < 50; j++) {
 					System.out.print(arr[j]);
 				}
 				System.out.println();
 
-                // 순위매기기
-                if (h2.getSection() >= 50) {
-                    h2.setRank(rank);
-                    rank++;
-                    h2.setGoal(true);
-                }
+				// 순위매기기
+				if (h2.getSection() >= 50) {
+					h2.setRank(rank);
+					rank++;
+					h2.setGoal(true);
+				}
 
 			}
 
-			//일정 시간마다 출력
+			// 일정 시간마다 출력
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
@@ -90,11 +89,11 @@ class PrintHorse extends Thread {
 			}
 			System.out.println("=========================================================");
 
-			//말 다 들어오면 경기 끝
-			if (rank==11) {
+			// 말 다 들어오면 경기 끝
+			if (rank == 11) {
 
 				System.out.println("=========경기 끝!=======");
-				running=false;
+				running = false;
 			}
 		}
 		Collections.sort(list);
@@ -108,13 +107,13 @@ class PrintHorse extends Thread {
 }
 
 // 말 클래스
-class Horse extends Thread implements Comparable<Horse>{
-	
+class Horse extends Thread implements Comparable<Horse> {
+
 	private String name;
 	private int rank;
 	private int section = 0;
 	public volatile boolean isGoal = false; // 결승지점 통과 여부
-	
+
 	public Horse(String name) {
 		super();
 		this.name = name;
@@ -163,12 +162,9 @@ class Horse extends Thread implements Comparable<Horse>{
 		}
 	}
 
-
-
 	@Override
 	public int compareTo(Horse horse) {
-		return Integer.compare(this.rank, horse.getRank());		
+		return Integer.compare(this.rank, horse.getRank());
 	}
-		
-	
+
 }

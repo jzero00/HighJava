@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField id="ID" layoutX="140.0" layoutY="27.0" promptText="아이디" />
+      <Button layoutX="140.0" layoutY="100.0" mnemonicParsing="false" text="로그인" />
+      <Button layoutX="209.0" layoutY="100.0" mnemonicParsing="false" text="회원가입" />
+      <Text layoutX="64.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="아이디" wrappingWidth="44.12109375" />
+      <Text layoutX="64.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="비밀번호" wrappingWidth="52.0" />
+      <PasswordField layoutX="140.0" layoutY="57.0" promptText="비밀번호" />
+   </children>
+</Pane>
