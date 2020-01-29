@@ -1,4 +1,4 @@
-package kr.or.ddit.basic;
+package a_CollectionTest;
 
 import java.util.Properties;
 
