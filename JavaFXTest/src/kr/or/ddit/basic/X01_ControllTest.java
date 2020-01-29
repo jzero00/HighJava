@@ -19,7 +19,7 @@ public class X01_ControllTest extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
-		Parent root = FXMLLoader.load(getClass().getResource("controll.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("Control.fxml"));
 
 		Scene scene = new Scene(root);
 		primaryStage.setTitle("컨트롤 객체 연습");
