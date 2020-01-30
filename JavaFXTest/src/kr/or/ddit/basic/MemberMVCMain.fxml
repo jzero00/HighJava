@@ -87,10 +87,10 @@ maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infi
             <HBox alignment="CENTER" prefHeight="41.0" prefWidth="600.0" spacing="30.0">
                <children>
                   <Button mnemonicParsing="false" text="추가" fx:id="btnAdd" onAction="#btnAddClicked"/>
-                  <Button mnemonicParsing="false" text="수정" />
-                  <Button mnemonicParsing="false" text="삭제" />
-                  <Button disable="true" mnemonicParsing="false" text="확인" />
-                  <Button disable="true" mnemonicParsing="false" text="취소" />
+                  <Button mnemonicParsing="false" text="수정" fx:id="btnEdi" onAction="#btnEdiClicked"/>
+                  <Button mnemonicParsing="false" text="삭제" fx:id="btnDel" onAction="#btnDelClicked"/>
+                  <Button disable="true" mnemonicParsing="false" fx:id="btnOk" text="확인" />
+                  <Button disable="true" mnemonicParsing="false" fx:id="btnCancel" text="취소" />
                </children>
                <opaqueInsets>
                   <Insets />
@@ -104,12 +104,12 @@ maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infi
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </VBox.margin>
       </VBox>
-      <TableView prefHeight="415.0" prefWidth="600.0">
+      <TableView prefHeight="415.0" prefWidth="600.0" fx:id="table">
         <columns>
-          <TableColumn prefWidth="75.0" text="회원ID" />
-          <TableColumn prefWidth="262.0" text="회원이름" />
-            <TableColumn minWidth="0.0" prefWidth="146.0" text="회원전화" />
-            <TableColumn prefWidth="116.0" text="회원주소" />
+          <TableColumn prefWidth="75.0" text="회원ID" fx:id="idColumn"/>
+          <TableColumn prefWidth="262.0" text="회원이름" fx:id="nameColumn"/>
+            <TableColumn minWidth="0.0" prefWidth="146.0" text="회원전화" fx:id="telColumn"/>
+            <TableColumn prefWidth="116.0" text="회원주소" fx:id="addrColumn"/>
         </columns>
       </TableView>
    </children>

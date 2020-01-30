@@ -80,5 +80,12 @@ public class ControlTestController implements Initializable {
 		result += "\n취미 : " + sel;
 		txtResult.setText(result);
 	}
+<<<<<<< Updated upstream
+=======
+	
+	@FXML public void btnClicked(ActionEvent event) {
+			txtResult.setText(name);
+		}
+>>>>>>> Stashed changes
 
 }
