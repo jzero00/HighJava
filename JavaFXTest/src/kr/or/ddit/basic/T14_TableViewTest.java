@@ -41,7 +41,7 @@ public class T14_TableViewTest extends Application {
 
 		// 해당컬럼에 나타낼 데이터 연결하기
 		// (출력할 객체의 멤버변수와 출력할 컬럼을 매칭시킨다.)
-		korNameCol.setCellValueFactory(new PropertyValueFactory<>("korName"));// ""안에 속성값을 입력
+		korNameCol.setCellValueFactory(new PropertyValueFactory<>("korName")); // "안에 속성값을 입력"
 
 		TableColumn<Member, String> engNameCol = new TableColumn<>("영어이름");
 		engNameCol.setCellValueFactory(new PropertyValueFactory<>("engName"));
@@ -106,7 +106,7 @@ public class T14_TableViewTest extends Application {
 			}
 			if (!Pattern.matches("^[0-9]+$", txtAge.getText())) {
 				errMsg("데이터 오류", "나이는 정수형으로 입력하세요");
-				txtAge.requestFocus();// 해당 객체에 포커스 주기
+				txtAge.requestFocus();	// 해당 객체에 포커스 주기
 				return;
 			}
 			data.add(new Member(txtKorName.getText(), txtEngName.getText(), Integer.parseInt(txtAge.getText()),
@@ -132,7 +132,7 @@ public class T14_TableViewTest extends Application {
 			}
 			if (!Pattern.matches("^[0-9]+$", txtAge.getText())) {
 				errMsg("데이터 오류", "나이는 정수형으로 입력하세요");
-				txtAge.requestFocus();// 해당 객체에 포커스 주기
+				txtAge.requestFocus(); // 해당 객체에 포커스 주기
 				return;
 			}
 			data.set(table.getSelectionModel().getSelectedIndex(), new Member(txtKorName.getText(),
@@ -195,7 +195,7 @@ public class T14_TableViewTest extends Application {
 
 			// 입력 상자에 흐릿하게 나타내는 메시지
 			txtKorName.setPromptText("한글이름 입력");
-			txtAddr.requestFocus();// 포커스 주기
+			txtAddr.requestFocus(); // 포커스 주기
 		});
 
 		vbox.getChildren().addAll(btnAdd, btnEdit, btnDel, btnTest1);
@@ -289,6 +289,5 @@ public class T14_TableViewTest extends Application {
 		public void setAddr(String addr) {
 			this.addr = addr;
 		}
-
 	}
 }

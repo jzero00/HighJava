@@ -23,6 +23,7 @@ public class ComboGugudanController implements Initializable {
 	@FXML
 	private TextArea txtResult;
 
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
@@ -50,4 +51,5 @@ public class ComboGugudanController implements Initializable {
 
 		}
 	}
+
 }
