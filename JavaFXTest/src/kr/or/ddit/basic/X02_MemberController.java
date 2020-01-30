@@ -46,44 +46,46 @@ public class X02_MemberController implements Initializable {
 
 	@FXML
 	TableView<TableRowDataModel> table;
-	@FXML Button btnOk;
-	@FXML Button btnCancel;
-	
+	@FXML
+	Button btnOk;
+	@FXML
+	Button btnCancel;
+
 //테스트용 데이터
-	ObservableList<TableRowDataModel> data =
-			FXCollections.observableArrayList(new TableRowDataModel(new SimpleStringProperty("123"), new SimpleStringProperty("123"), new SimpleStringProperty("123"), new SimpleStringProperty("123")));
+	ObservableList<TableRowDataModel> data = FXCollections
+			.observableArrayList(new TableRowDataModel(new SimpleStringProperty("123"), new SimpleStringProperty("123"),
+					new SimpleStringProperty("123"), new SimpleStringProperty("123")));
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
-		idColumn.setCellValueFactory(cellData -> cellData.getValue().getMemNm());
+
+		idColumn.setCellValueFactory(cellData -> cellData.getValue().getMemId());
 		nameColumn.setCellValueFactory(cellData -> cellData.getValue().getMemNm());
 		telColumn.setCellValueFactory(cellData -> cellData.getValue().getMemTel());
-		addrColumn.setCellValueFactory(cellData -> cellData.getValue().getMemTel());
+		addrColumn.setCellValueFactory(cellData -> cellData.getValue().getMemAdd());
 		table.setItems(data);
-		
+
 	}
 
-
-	
 	@FXML
 	public void btnAddClicked(ActionEvent event) {
 
 		btnAdd.setOnAction(e -> {
-			
+
 //			confirm();
-			
+
 			if (txtMemId.getText().isEmpty() || txtMemNm.getText().isEmpty() || txtMemTel.getText().isEmpty()
 					|| txtMemAdd.getText().isEmpty()) {
 				errMsg("작업오류", "빈 항목이 있습니다.");
 				return;
 			}
 
-			table.getItems().add(new TableRowDataModel
-					(new SimpleStringProperty(txtMemId.getText()), new SimpleStringProperty(txtMemNm.getText()),
-							new SimpleStringProperty(txtMemTel.getText()), new SimpleStringProperty(txtMemAdd.getText())));
+			table.getItems()
+					.add(new TableRowDataModel(new SimpleStringProperty(txtMemId.getText()),
+							new SimpleStringProperty(txtMemNm.getText()), new SimpleStringProperty(txtMemTel.getText()),
+							new SimpleStringProperty(txtMemAdd.getText())));
 			infoMsg("작업결과", txtMemNm.getText() + "님의 정보를 추가했습니다.");
-			
+
 		});
 //		defaultButton();
 
@@ -94,25 +96,24 @@ public class X02_MemberController implements Initializable {
 	}
 
 	private void defaultButton() {
+
 		btnAdd.setDisable(false);
 		btnDel.setDisable(false);
 		btnEdi.setDisable(false);
 		btnOk.setDisable(true);
 		btnCancel.setDisable(true);
-		
+
 	}
 
 	private void confirm() {
-		
+
 		btnAdd.setDisable(true);
 		btnDel.setDisable(true);
 		btnEdi.setDisable(true);
 		btnOk.setDisable(false);
 		btnCancel.setDisable(false);
-		
+
 	}
-	
-	
 
 	@FXML
 	public void btnEdiClicked(ActionEvent event) {
@@ -124,10 +125,11 @@ public class X02_MemberController implements Initializable {
 				return;
 			}
 
-			table.getItems().set(table.getSelectionModel().getSelectedIndex(), new TableRowDataModel
-					(new SimpleStringProperty(txtMemId.getText()), new SimpleStringProperty(txtMemNm.getText()),
-							new SimpleStringProperty(txtMemTel.getText()), new SimpleStringProperty(txtMemAdd.getText())));
-			
+			table.getItems().set(table.getSelectionModel().getSelectedIndex(),
+					new TableRowDataModel(new SimpleStringProperty(txtMemId.getText()),
+							new SimpleStringProperty(txtMemNm.getText()), new SimpleStringProperty(txtMemTel.getText()),
+							new SimpleStringProperty(txtMemAdd.getText())));
+
 			infoMsg("작업결과", txtMemNm.getText() + "님의 정보를 수정했습니다.");
 
 			txtMemId.clear();
@@ -140,15 +142,15 @@ public class X02_MemberController implements Initializable {
 
 	@FXML
 	public void btnDelClicked() {
-		
+
 		btnDel.setOnAction(e -> {
-			if(table.getSelectionModel().isEmpty()) {
+			if (table.getSelectionModel().isEmpty()) {
 				errMsg("작업오류", "삭제할 자료를 선택한 후 삭제하세요");
 				return;
 			}
 			data.remove(table.getSelectionModel().getSelectedIndex());
 			infoMsg("작업 결과", txtMemNm.getText() + "님의 정보를 삭제했습니다.");
-			
+
 			txtMemId.clear();
 			txtMemNm.clear();
 			txtMemTel.clear();
@@ -179,7 +181,8 @@ public class X02_MemberController implements Initializable {
 		private StringProperty memTel;
 		private StringProperty memAdd;
 
-		public TableRowDataModel(StringProperty memId, StringProperty memNm, StringProperty memTel, StringProperty memAdd) {
+		public TableRowDataModel(StringProperty memId, StringProperty memNm, StringProperty memTel,
+				StringProperty memAdd) {
 			this.memId = memId;
 			this.memNm = memNm;
 			this.memTel = memTel;
