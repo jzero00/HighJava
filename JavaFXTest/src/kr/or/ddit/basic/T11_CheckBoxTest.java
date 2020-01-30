@@ -43,7 +43,7 @@ public class T11_CheckBoxTest extends Application {
 			final ImageView icon = icons[i] = new ImageView();
 			final CheckBox cb = chkboxs[i] = new CheckBox(names[i]);
 
-			// CheckBox를 클릭해서 값이 변경되었을 떄의 이벤트 처리
+			// CheckBox를 클릭해서 값이 변경되었을 때의 이벤트 처리
 			cb.selectedProperty().addListener(new ChangeListener<Boolean>() {
 
 				@Override

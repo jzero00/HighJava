@@ -51,7 +51,7 @@ maxHeight="-Infinity" maxWidth="-Infinity"
 						<Insets />
 					</HBox.margin>
 					<toggleGroup>
-						<ToggleGroup fx:id="gender" />
+						<ToggleGroup fx:id="group1" />
 					</toggleGroup>
 				</RadioButton>
 				<RadioButton mnemonicParsing="false" text="여"
@@ -75,14 +75,14 @@ maxHeight="-Infinity" maxWidth="-Infinity"
 			<children>
 				<Text lineSpacing="50.0" strokeType="OUTSIDE" strokeWidth="0.0"
 					text="취미" />
-				<CheckBox mnemonicParsing="false" text="여행" />
-				<CheckBox mnemonicParsing="false" text="등산" />
-				<CheckBox mnemonicParsing="false" text="독서" />
-				<CheckBox mnemonicParsing="false" text="바둑" />
-				<CheckBox mnemonicParsing="false" text="장기" />
-				<CheckBox mnemonicParsing="false" text="게임" />
-				<CheckBox mnemonicParsing="false" text="테니스" />
-				<CheckBox mnemonicParsing="false" text="배드민턴" />
+				<CheckBox mnemonicParsing="false" text="여행" fx:id="travel"/>
+				<CheckBox mnemonicParsing="false" text="등산" fx:id="climb"/>
+				<CheckBox mnemonicParsing="false" text="독서" fx:id="reading"/>
+				<CheckBox mnemonicParsing="false" text="바둑" fx:id="badook"/>
+				<CheckBox mnemonicParsing="false" text="장기" fx:id="chess"/>
+				<CheckBox mnemonicParsing="false" text="게임" fx:id="game"/>
+				<CheckBox mnemonicParsing="false" text="테니스" fx:id="tennis"/>
+				<CheckBox mnemonicParsing="false" text="배드민턴" fx:id="badminton"/>
 			</children>
 			<padding>
 				<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

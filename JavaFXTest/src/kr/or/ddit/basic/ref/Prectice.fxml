@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.Group?>
+
+
+<BorderPane fx:controller="kr.or.ddit.basic.PrecticeController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="이름 :" />
+                  <TextField fx:id="text1" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="성별 :" />
+                  <fx:define>
+                  	<ToggleGroup fx:id="group1" />
+                  </fx:define>
+                  <RadioButton toggleGroup="$group1" userData="남자" mnemonicParsing="false" selected="true"  text="남자" />
+                  <RadioButton toggleGroup="$group1" userData="여자" mnemonicParsing="false"  text="여자" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="취미" />
+                <CheckBox fx:id="trip" mnemonicParsing="false" text="여행" />
+                  <CheckBox fx:id="climbing" mnemonicParsing="false" text="등산" />
+                  <CheckBox fx:id="reading" mnemonicParsing="false" text="독서" />
+                  <CheckBox fx:id="baduk" mnemonicParsing="false" text="바둑" />
+                  <CheckBox fx:id="janggi" mnemonicParsing="false" text="장기" />
+                  <CheckBox fx:id="game" mnemonicParsing="false" text="게임" />
+                  <CheckBox fx:id="tennis" mnemonicParsing="false" text="테니스" />
+                  <CheckBox fx:id="badminton" mnemonicParsing="false" text="배드민턴" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="button1" mnemonicParsing="false" text="보기" onAction="#btnAction">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+   <left>
+      <TextArea fx:id="textar" prefHeight="204.0" prefWidth="181.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+      </TextArea>
+   </left>
+</BorderPane>
