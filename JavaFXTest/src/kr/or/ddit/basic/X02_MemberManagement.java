@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 
-public class X02_MemberMVC extends Application {
+public class X02_MemberManagement extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {

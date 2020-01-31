@@ -2,6 +2,8 @@ package kr.or.ddit.basic;
 
 import java.util.regex.Pattern;
 
+import javax.swing.ButtonModel;
+
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -197,8 +199,17 @@ public class T14_TableViewTest extends Application {
 			txtKorName.setPromptText("한글이름 입력");
 			txtAddr.requestFocus(); // 포커스 주기
 		});
+		
+		Button btnTest2 = new Button("속성 연습 2");
+		btnTest2.setOnAction(e -> {
+			txtKorName.setEditable(true);
+			txtEngName.setEditable(true);
+			
+			btnAdd.setDisable(false);
+			btnEdit.setDisable(false);
+		});
 
-		vbox.getChildren().addAll(btnAdd, btnEdit, btnDel, btnTest1);
+		vbox.getChildren().addAll(btnAdd, btnEdit, btnDel, btnTest1, btnTest2);
 
 		root.setCenter(table);
 		root.setRight(vbox);
