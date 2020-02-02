@@ -23,68 +23,75 @@ public class ZiptbController implements Initializable{
 
     @FXML
     private ResourceBundle resources;
-
     @FXML
     private URL location;
-
     @FXML
-    private TableColumn<ZiptbVO, String> gugun;
-
-    @FXML
-    private TableColumn<ZiptbVO, String> postNo;
-
-    @FXML
-    private TableColumn<ZiptbVO, String> number;
-
-    @FXML
-    private ComboBox<String> comBox;
-
-    @FXML
-    private TableColumn<ZiptbVO, String> sido;
-
+    private ComboBox<String> comboBox;
     @FXML
     private TextField searchBar;
-
-    @FXML
-    private TableColumn<ZiptbVO, String> dong;
-
     @FXML
     private Button btn;
-
     @FXML
     private TableView<ZiptbVO> table;
-
-    @FXML
-
+	@FXML
+	private TableColumn<ZiptbVO, String> zipcode;
+	@FXML
+	private TableColumn<ZiptbVO, String> sido;
+	@FXML
+	private TableColumn<ZiptbVO, String> gugun;
+	@FXML
+	private TableColumn<ZiptbVO, String> dong;
+	@FXML
+	private TableColumn<ZiptbVO, String> bunji;
+    
     ZiptbService zipService = ZiptbServiceImpl.getInstance();
-
 
     @FXML
     void search(ActionEvent event) {
-	System.out.println("00");
+    	
+
+    	if(comboBox.getSelectionModel().getSelectedItem() == "동이름") {
+	
+    		String searchText = searchBar.getText();
+   		
+    		ZiptbVO vo = new ZiptbVO();
+  		
+    		vo.setDong(searchText);
+ 		
+    		List<ZiptbVO> getDongList = zipService.searchDong(vo);
+//    		vo.getZipCode()
+    		ObservableList<ZiptbVO> list = FXCollections.observableList(getDongList);
+    		
+    		table.setItems(list);
+
+    	} else if (comboBox.getSelectionModel().getSelectedItem() == "우편번호") {
+    		
+    		String searchText = searchBar.getText();
+    		
+    		ZiptbVO vo = new ZiptbVO();
+    		
+    		vo.setZipCode(searchText);
+    		
+    		List<ZiptbVO> getZipcodeList = zipService.searchBunji(vo);
+    		
+    		ObservableList<ZiptbVO> list = FXCollections.observableArrayList(getZipcodeList);
+    		
+    		table.setItems(list);
+    	}
     }
 
-    List<ZiptbVO> getDongList = zipService.getDongList();
-
-    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 	
-	comBox.getItems().addAll("동이름", "우편번호");
+	comboBox.getItems().addAll("동이름", "우편번호");
 	
+	zipcode.setCellValueFactory(new PropertyValueFactory<>("zipcode"));
 	gugun.setCellValueFactory(new PropertyValueFactory<>("gugun"));
-	postNo.setCellValueFactory(new PropertyValueFactory<>("postNo"));
-	number.setCellValueFactory(new PropertyValueFactory<>("number"));
 	sido.setCellValueFactory(new PropertyValueFactory<>("sido"));
 	dong.setCellValueFactory(new PropertyValueFactory<>("dong"));
+	bunji.setCellValueFactory(new PropertyValueFactory<>("bunji"));
 
 	
     }
 
-
-    @FXML public void setDong() {
-	
-	
-	
-    }
 }

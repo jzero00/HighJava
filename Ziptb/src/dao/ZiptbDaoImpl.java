@@ -21,61 +21,68 @@ import vo.ZiptbVO;
 
 public class ZiptbDaoImpl implements ZiptbDao {
 
-    private static ZiptbDaoImpl dao;
+	private static ZiptbDaoImpl dao;
 
-    private SqlMapClient smc;
+	private SqlMapClient smc;
 
-    private Connection conn;
-    private Statement stmt;
-    private PreparedStatement pstmt;
-    private ResultSet rs;
+	private Connection conn;
+	private Statement stmt;
+	private PreparedStatement pstmt;
+	private ResultSet rs;
 
-    private ZiptbDaoImpl() {
+	private ZiptbDaoImpl() {
 
-	Charset charset = Charset.forName("UTF-8");
-	Resources.setCharset(charset);
-	Reader rd;
+		Charset charset = Charset.forName("UTF-8");
+		Resources.setCharset(charset);
+		Reader rd;
 
-	try {
-	    rd = Resources.getResourceAsReader("SqlMapConfig.xml");
+		try {
+			rd = Resources.getResourceAsReader("SqlMapConfig.xml");
 
-	    //1-2 위에서 읽어온 Reader객체를 이용하여 실제 작업을 진행할 객체 생성
-	    smc = SqlMapClientBuilder.buildSqlMapClient(rd);
-	    rd.close();	//reader객체 닫기
+			//1-2 위에서 읽어온 Reader객체를 이용하여 실제 작업을 진행할 객체 생성
+			smc = SqlMapClientBuilder.buildSqlMapClient(rd);
+			rd.close();	//reader객체 닫기
 
-	} catch (IOException e) {
-	    System.out.println("SqlMapClient 객체 생성 실패!!");
-	    e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("SqlMapClient 객체 생성 실패!!");
+			e.printStackTrace();
+		}
+
+
 	}
 
+	public static ZiptbDaoImpl getInstance() {
 
-    }
-
-    public static ZiptbDaoImpl getInstance() {
-
-	if(dao == null) {
-	    dao = new ZiptbDaoImpl();
+		if(dao == null) {
+			dao = new ZiptbDaoImpl();
+		}
+		return dao;
 	}
-	return dao;
-    }
 
-    @Override
-    public List<ZiptbVO> getDongList() {
+	@Override
+	public List<ZiptbVO> searchDong(ZiptbVO vo) {
 
-	List<ZiptbVO> dongList = new ArrayList<ZiptbVO>();
+		List<ZiptbVO> dongList = new ArrayList<ZiptbVO>();
 
-	try {
-	    dongList = smc.queryForList("ziptb.getDong");
-	} catch (SQLException e) {
-	    e.printStackTrace();
+		try {
+			dongList = smc.queryForList("ziptb.searchDong", vo);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return dongList;
 	}
-	return dongList;
-    }
 
-    @Override
-    public List<ZiptbVO> searchBunji() {
-	// TODO Auto-generated method stub
-	return null;
-    }
+	@Override
+	public List<ZiptbVO> searchBunji(ZiptbVO vo) {
+
+		List<ZiptbVO> bunjiList = new ArrayList<ZiptbVO>();
+
+		try {
+			bunjiList = smc.queryForList("ziptb.searchBunji", vo);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return bunjiList;
+	}
 
 }

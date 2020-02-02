@@ -21,16 +21,16 @@ public class ZiptbServiceImpl implements ZiptbService {
     ZiptbDao zipDao = ZiptbDaoImpl.getInstance();
     
     @Override
-    public List<ZiptbVO> getDongList() {
+    public List<ZiptbVO> searchDong(ZiptbVO vo) {
 
-	return zipDao.getDongList();
+	return zipDao.searchDong(vo);
 	
     }
 
     @Override
-    public List<ZiptbVO> searchBunji() {
-	// TODO Auto-generated method stub
-	return null;
+    public List<ZiptbVO> searchBunji(ZiptbVO vo) {
+
+	return zipDao.searchBunji(vo);
     }
 
 }

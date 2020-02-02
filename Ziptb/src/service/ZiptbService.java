@@ -6,8 +6,8 @@ import vo.ZiptbVO;
 
 public interface ZiptbService {
 
-    public List<ZiptbVO> getDongList();
+    public List<ZiptbVO> searchDong(ZiptbVO vo);
     
-    public List<ZiptbVO> searchBunji();
+    public List<ZiptbVO> searchBunji(ZiptbVO vo);
     
 }

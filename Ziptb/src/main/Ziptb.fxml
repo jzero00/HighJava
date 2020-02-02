@@ -5,23 +5,30 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:controller="main.ZiptbController" 
-maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:controller="main.ZiptbController" maxHeight="-Infinity"
+	maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+	prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8"
+	xmlns:fx="http://javafx.com/fxml/1">
 	<children>
-		<HBox alignment="CENTER" prefHeight="58.0" prefWidth="600.0" spacing="10.0">
+		<HBox alignment="CENTER" prefHeight="58.0" prefWidth="600.0"
+			spacing="10.0">
 			<children>
-				<ComboBox fx:id="comBox" onAction="#setDong" prefWidth="150.0" promptText="동 이름" />
+				<ComboBox fx:id="comboBox" prefWidth="150.0"
+					promptText="동이름" />
 				<TextField fx:id="searchBar" />
-				<Button fx:id="btn" mnemonicParsing="false" onAction="#search" text="검색" />
+				<Button fx:id="btn" mnemonicParsing="false"
+					onAction="#search" text="검색" />
 			</children>
 		</HBox>
-		<TableView fx:id="table" prefHeight="340.0" prefWidth="600.0">
+		<TableView fx:id="table" prefHeight="340.0"
+			prefWidth="600.0">
 			<columns>
-				<TableColumn fx:id="postNo" prefWidth="75.0" text="우편번호" />
-				<TableColumn fx:id="sido" prefWidth="111.0" text="시도" />
-				<TableColumn fx:id="gugun" prefWidth="205.0" text="구군" />
-				<TableColumn fx:id="dong" prefWidth="113.0" text="동" />
-				<TableColumn fx:id="number" prefWidth="92.0" text="번지" />
+				<TableColumn fx:id="zipcode" prefWidth="75.0"
+					text="우편번호" />
+				<TableColumn fx:id="sido" prefWidth="100" text="시도" />
+				<TableColumn fx:id="gugun" prefWidth="100" text="구군" />
+				<TableColumn fx:id="dong" prefWidth="200" text="동" />
+				<TableColumn fx:id="bunji" prefWidth="100" text="번지" />
 			</columns>
 		</TableView>
 	</children>
