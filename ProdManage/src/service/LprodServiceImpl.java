@@ -27,9 +27,9 @@ public class LprodServiceImpl implements LprodService {
     }
 
     @Override
-    public List<LprodVO> SelectProdName(LprodVO vo) {
+    public List<LprodVO> SelectProdName(String string) {
 
-	return lprodDao.SelectProdName(vo);
+	return lprodDao.SelectProdName(string);
     }
 
 }

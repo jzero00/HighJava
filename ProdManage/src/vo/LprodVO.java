@@ -25,7 +25,6 @@ public class LprodVO {
 	this.prod_sale = prod_sale;
 	this.prod_outline = prod_outline;
 	this.prod_detail = prod_detail;
-//	this.lprod_nm = lprod_nm;
     }
     
     public LprodVO (){

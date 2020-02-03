@@ -13,10 +13,11 @@
 
 	<select id="SelectProdName" resultClass="vo">
 	
-SELECT prod_name
+SELECT *
 FROM lprod,prod
 WHERE lprod_nm  = #lprod_nm#
 AND lprod.LPROD_GU = prod.PROD_LGU (+)
+
 		
 	</select>
 

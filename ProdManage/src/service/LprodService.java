@@ -13,6 +13,6 @@ public interface LprodService {
      */
     public List<LprodVO> SelectLprodName();
     
-    public List<LprodVO> SelectProdName(LprodVO vo);
+    public List<LprodVO> SelectProdName(String string);
     
 }

@@ -70,12 +70,12 @@ public class LprodDaoImpl implements LprodDao {
     }
 
     @Override
-    public List<LprodVO> SelectProdName(LprodVO vo) {
+    public List<LprodVO> SelectProdName(String string) {
 
 	List<LprodVO> prodNameList = new ArrayList<LprodVO>();
 	
 	try {
-	    prodNameList = smc.queryForList("lprod.SelectProdName");
+	    prodNameList = smc.queryForList("lprod.SelectProdName", string);
 	} catch (SQLException e) {
 	    e.printStackTrace();
 	}
