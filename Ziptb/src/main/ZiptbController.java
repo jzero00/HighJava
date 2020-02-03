@@ -49,7 +49,6 @@ public class ZiptbController implements Initializable{
     @FXML
     void search(ActionEvent event) {
     	
-
     	if(comboBox.getSelectionModel().getSelectedItem() == "동이름") {
 	
     		String searchText = searchBar.getText();
@@ -59,7 +58,7 @@ public class ZiptbController implements Initializable{
     		vo.setDong(searchText);
  		
     		List<ZiptbVO> getDongList = zipService.searchDong(vo);
-//    		vo.getZipCode()
+
     		ObservableList<ZiptbVO> list = FXCollections.observableList(getDongList);
     		
     		table.setItems(list);

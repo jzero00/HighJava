@@ -15,11 +15,13 @@ import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 
-import vo.ZiptbVO;
+import service.LprodServiceImpl;
+import vo.LprodVO;
 
-public class ZiptbDaoImpl implements ZiptbDao {
 
-    private static ZiptbDaoImpl dao;
+public class LprodDaoImpl implements LprodDao {
+
+    private static LprodDaoImpl dao;
 
     private SqlMapClient smc;
 
@@ -28,7 +30,7 @@ public class ZiptbDaoImpl implements ZiptbDao {
     private PreparedStatement pstmt;
     private ResultSet rs;
 
-    private ZiptbDaoImpl() {
+    private LprodDaoImpl() {
 
 	Charset charset = Charset.forName("UTF-8");
 	Resources.setCharset(charset);
@@ -45,42 +47,39 @@ public class ZiptbDaoImpl implements ZiptbDao {
 	    System.out.println("SqlMapClient 객체 생성 실패!!");
 	    e.printStackTrace();
 	}
-
-
     }
-
-    public static ZiptbDaoImpl getInstance() {
-
-	if(dao == null) {
-	    dao = new ZiptbDaoImpl();
+    
+    public static LprodDaoImpl getInstance() {
+	if (dao == null) {
+	    dao = new LprodDaoImpl();
 	}
 	return dao;
     }
 
     @Override
-    public List<ZiptbVO> searchDong(ZiptbVO vo) {
+    public List<LprodVO> SelectLprodName() {
 
-	List<ZiptbVO> dongList = new ArrayList<ZiptbVO>();
+	List<LprodVO> lprodNameList = new ArrayList<LprodVO>();
 
 	try {
-	    dongList = smc.queryForList("ziptb.searchDong", vo);
+	    lprodNameList = smc.queryForList("lprod.selectProdName");
 	} catch (SQLException e) {
 	    e.printStackTrace();
 	}
-	return dongList;
+	return lprodNameList;
     }
 
     @Override
-    public List<ZiptbVO> searchBunji(ZiptbVO vo) {
+    public List<LprodVO> SelectProdName(LprodVO vo) {
 
-	List<ZiptbVO> bunjiList = new ArrayList<ZiptbVO>();
-
+	List<LprodVO> prodNameList = new ArrayList<LprodVO>();
+	
 	try {
-	    bunjiList = smc.queryForList("ziptb.searchBunji", vo);
+	    prodNameList = smc.queryForList("lprod.SelectProdName");
 	} catch (SQLException e) {
 	    e.printStackTrace();
 	}
-	return bunjiList;
+	return prodNameList;
     }
 
 }

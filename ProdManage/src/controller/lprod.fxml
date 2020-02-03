@@ -5,7 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:controller="prodInfo.ProdInfoController"
+<VBox fx:controller="controller.ProdInfoController"
 	maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
 	minWidth="-Infinity" prefHeight="600" prefWidth="900"
 	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">

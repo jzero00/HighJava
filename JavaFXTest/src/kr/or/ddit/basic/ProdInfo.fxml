@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.HBox?>
+
+<Pane fx:controller="controller.ProdController"
+	maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+	minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0"
+	style="-fx-background-color: lightgray;"
+	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<TableView fx:id="view" layoutY="59.0"
+			prefHeight="543.0" prefWidth="900.0">
+			<columns>
+				<TableColumn fx:id="prod_id" prefWidth="100.0"
+					text="PROD_ID" />
+				<TableColumn fx:id="prod_name" prefWidth="100.0"
+					text="PROD_NAME" />
+				<TableColumn fx:id="prod_lgu" prefWidth="100.0"
+					text="PROD_LGU" />
+				<TableColumn fx:id="prod_buyer" prefWidth="100.0"
+					text="PROD_BUYER" />
+				<TableColumn fx:id="prod_cost" prefWidth="100.0"
+					text="PROD_COST" />
+				<TableColumn fx:id="prod_price" prefWidth="100.0"
+					text="PROD_PRICE" />
+				<TableColumn fx:id="prod_sale" prefWidth="100.0"
+					text="PROD_SALE" />
+				<TableColumn fx:id="prod_outline" prefWidth="100.0"
+					text="PROD_OUTLINE" />
+				<TableColumn fx:id="prod_detail" prefWidth="100.0"
+					text="PROD_DETAIL" />
+			</columns>
+		</TableView>
+		<ComboBox fx:id="prod_name_box" layoutX="194.0" layoutY="14.0"
+			onAction="#lprod_nmSelect" prefHeight="30.0" prefWidth="180.0" />
+		<ComboBox fx:id="p_name_box" layoutX="429.0" layoutY="14.0"
+			onAction="#prod_nameSelect" prefHeight="30.0" prefWidth="250.0" />
+	</children>
+</Pane>

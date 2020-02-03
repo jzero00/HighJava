@@ -6,16 +6,15 @@
 <?import javafx.scene.layout.*?>
 
 <VBox fx:controller="prodInfo.ProdInfoController"
-maxHeight="-Infinity" maxWidth="-Infinity"
-	minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-	prefWidth="700.0" xmlns="http://javafx.com/javafx/8"
-	xmlns:fx="http://javafx.com/fxml/1">
+	maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+	minWidth="-Infinity" prefHeight="600" prefWidth="900"
+	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
 	<children>
 		<HBox alignment="TOP_CENTER" prefHeight="0.0" prefWidth="600.0"
 			spacing="10.0">
 			<children>
-				<ComboBox fx:id="box1" prefWidth="150.0" />
-				<ComboBox fx:id="box2" prefWidth="150.0" />
+				<ComboBox fx:id="nmbox" prefWidth="150.0" onAction="#lpSelect"/>
+				<ComboBox fx:id="namebox" prefWidth="150.0" onAction="#pSelect"/>
 			</children>
 			<padding>
 				<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -23,19 +22,23 @@ maxHeight="-Infinity" maxWidth="-Infinity"
 		</HBox>
 		<TableView prefHeight="397.0" prefWidth="564.0">
 			<columns>
-				<TableColumn fx:id="id" prefWidth="75.0" text="PROD_ID" />
-				<TableColumn fx:id="name" prefWidth="84.0"
+				<TableColumn fx:id="prod_id" prefWidth="100"
+					text="PROD_ID" />
+				<TableColumn fx:id="prod_name" prefWidth="100"
 					text="PROD_NAME" />
-				<TableColumn fx:id="lgu" prefWidth="85.0"
+				<TableColumn fx:id="prod_lgu" prefWidth="100"
 					text="PROD_LGU" />
-				<TableColumn fx:id="cost" prefWidth="85.0"
+				<TableColumn fx:id="p_buyer" prefWidth="100.0"
+					text="PROD_BUYER" />
+				<TableColumn fx:id="prod_cost" prefWidth="100"
 					text="PROD_COST" />
-				<TableColumn fx:id="price" prefWidth="89.0"
+				<TableColumn fx:id="prod_price" prefWidth="100"
 					text="PROD_PRICE" />
-				<TableColumn fx:id="sale" text="PROD_SALE" />
-				<TableColumn fx:id="outline" prefWidth="104.0"
+				<TableColumn fx:id="prod_sale" prefWidth="100"
+					text="PROD_SALE" />
+				<TableColumn fx:id="prod_outline" prefWidth="100"
 					text="PROD_OUTLINE" />
-				<TableColumn fx:id="detail" prefWidth="97.0"
+				<TableColumn fx:id="prod_detail" prefWidth="100"
 					text="PROD_DETAIL" />
 			</columns>
 		</TableView>
