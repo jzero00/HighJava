@@ -74,10 +74,8 @@ class Member implements Serializable {
     /*
      * 자바는 Serializable인터페이스를 구현한 클래스만 직렬화할 수 있도록 제한하고 있음. 구현 안하면 직렬화 작업시
      * java.io.NotSerialiazableException 예외 발생함.
-     */
-
-    /*
-     * transinet → 직렬화가 되지 않을 멤버변수에 지정한다. (* static 필드도 직렬화가 되지 않는다)
+     * 
+     * transient → 직렬화가 되지 않을 멤버변수에 지정한다. (* static 필드도 직렬화가 되지 않는다)
      * 직렬화가 되지 않는 멤버변수는 기본값으로 저장된다. (참조형 변수 : null, 숫자형 변수 : 0)
      */
     
