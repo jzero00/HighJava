@@ -36,25 +36,18 @@ public class ScoreManageController implements Initializable{
 
     @FXML
     private Button add;
-
     @FXML
     private TableColumn<Score, Integer> mat;
-
     @FXML
     private Button viewChart;
-
     @FXML
     private TableColumn<Score, String> name;
-
     @FXML
     private TableView<Score> tableView;
-
     @FXML
     private TableColumn<Score, Integer> kor;
-
     @FXML
     private TableColumn<Score, Integer> eng;
-
     
     ObservableList<Score> data = FXCollections.observableArrayList(
 		//디폴트 데이터
@@ -225,13 +218,7 @@ public class ScoreManageController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-	ObservableList<Score> data = FXCollections.observableArrayList(
-		//디폴트 데이터
-		new Score("고하늘", 100, 80, 70),
-		new Score("박성순", 90, 85, 80),
-		new Score("배명수", 60, 80, 95),
-		new Score("도연우", 95, 95, 75)		
-		);
+
 	tableView.setItems(data);
 	name.setCellValueFactory(new PropertyValueFactory<>("name"));
 	kor.setCellValueFactory(new PropertyValueFactory<>("kor"));
