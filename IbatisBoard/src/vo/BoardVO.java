@@ -3,29 +3,15 @@ package vo;
 import java.util.Date;
 
 public class BoardVO {
+    
+	//멤버 변수 선언
+	private int board_no;		//게시글 번호
+	private String board_title;	//게시글 제목
+	private String board_writer;	//게시글 작성자
+	private Date board_date;	//게시글 작성일
+	private String board_content;	//게시글 내용
 	
-	int num;
-	
-
-
-	private int board_no;
-	
-	private String board_title;
-	
-	private String board_writer;
-	
-	private Date board_date;
-	
-	private String board_content;
-	
-	public int getNum() {
-		return num;
-	}
-
-	public void setNum(int num) {
-		this.num = num;
-	}
-	
+	//getter,setter 생성
 	public int getBoard_no() {
 		return board_no;
 	}
