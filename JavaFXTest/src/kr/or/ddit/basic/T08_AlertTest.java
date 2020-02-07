@@ -30,16 +30,16 @@ public class T08_AlertTest extends Application {
 		alertWarn.setContentText("WARNING Alert창입니다.");
 		alertWarn.showAndWait();
 		// ========================================================
-		Alert alertConfrim = new Alert(AlertType.CONFIRMATION);
-		alertConfrim.setTitle("CONFIRMATION");
-		alertConfrim.setContentText("CONFIRMATION Alert창입니다.");
+		Alert alertConfirm = new Alert(AlertType.CONFIRMATION);
+		alertConfirm.setTitle("CONFIRMATION");
+		alertConfirm.setContentText("CONFIRMATION Alert창입니다.");
 
 		// Alert창을 보여주고 사용자가 누른 버튼 값 읽어오기
-		ButtonType confrimResult = alertConfrim.showAndWait().get();
+		ButtonType confirmResult = alertConfirm.showAndWait().get();
 
-		if (confrimResult == ButtonType.OK) {
+		if (confirmResult == ButtonType.OK) {
 			System.out.println("OK버튼을 눌렀습니다.");
-		} else if (confrimResult == ButtonType.CANCEL) {
+		} else if (confirmResult == ButtonType.CANCEL) {
 			System.out.println("취소버튼을 눌렀습니다.");
 		}
 		// =========================================================

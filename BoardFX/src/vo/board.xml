@@ -31,14 +31,6 @@
 
 	</update>
 
-	<!-- 게시글 삭제 -->
-	<delete id="deletePost" parameterClass="int">
-
-		DELETE FROM jdbc_board
-		WHERE board_no = #index#
-
-	</delete>
-
 	<!-- 게시글 전체 목록 출력 -->
 	<select id="getAllPostList" resultClass="vo">
 
@@ -48,36 +40,13 @@ ORDER BY board_no DESC
 		
 	</select>
 	
-	
-	<select id="getPost" parameterClass="int"  resultClass="vo">
-	
-	SELECT * FROM jdbc_board WHERE board_no = #board_no#
-	
-	</select>
-	
-	<!-- 게시글 검색 -->
-	<select id="searchPost" parameterClass="vo" resultClass="vo">
-	
-	SELECT *
-	FROM jdbc_board
-	WHERE 1=1
-	<isNotEmpty property="board_no">
-	AND board_no = #board_no# 
-	</isNotEmpty>
-	
-	<isNotEmpty property="board_title">
-	AND board_title = #board_title# 
-	</isNotEmpty>
-	
-	<isNotEmpty property="board_writer">
-	AND board_writer = #board_writer# 
-	</isNotEmpty>
-	
-	<isNotEmpty property="board_content">
-	AND board_content = LIKE '%' || #board_content#  || '%'
-	</isNotEmpty>
-	
-	</select>
+	<delete id="deletePost" parameterClass="int">
+
+		DELETE FROM jdbc_board
+		WHERE board_no = #index#
+
+	</delete>
+
 </sqlMap>			
 
 
