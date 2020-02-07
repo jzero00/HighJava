@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
-public class T14_PhoneBookTest {
+public class PhoneBookTest {
     private Scanner scan;
     private static Map<String, Phone> phoneBookMap;
     ObjectOutputStream oos;
@@ -72,7 +72,7 @@ public class T14_PhoneBookTest {
 
     }
     
-    public T14_PhoneBookTest() {
+    public PhoneBookTest() {
 	
 	scan = new Scanner(System.in);
 	phoneBookMap = new HashMap<>();
@@ -260,7 +260,7 @@ public class T14_PhoneBookTest {
 
     public static void main(String[] args) {
 
-	T14_PhoneBookTest pb = new T14_PhoneBookTest();
+	PhoneBookTest pb = new PhoneBookTest();
 	pb.input();
 	pb.phoneBookStart();
 	pb.output();
