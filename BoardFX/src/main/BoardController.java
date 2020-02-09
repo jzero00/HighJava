@@ -75,29 +75,7 @@ public class BoardController implements Initializable {
 				: allTableData.size() / itemsForPage + 1;
 		pagination.setPageCount(totPageCount); // 전체페이지 수 설정
 
-		pagination.setPageFactory(new Callback<Integer, Node>() {
-
-			@Override
-			public Node call(Integer pageIndex) {
-				from = pageIndex * itemsForPage;
-				to = from + itemsForPage - 1;
-				tableView.setItems(getTableViewData(from, to));
-
-				return tableView;
-			}
-
-			private ObservableList<BoardVO> getTableViewData(int from, int to) {
-				// 현재 페이지의 데이터 초기화
-				currentPageData = FXCollections.observableArrayList();
-
-				int totSize = allTableData.size();
-				for (int i = from; i <= to && i < totSize; i++) {
-					currentPageData.add(allTableData.get(i));
-				}
-
-				return currentPageData;
-			}
-		});
+		paging();
 
 	}
 
@@ -153,6 +131,8 @@ public class BoardController implements Initializable {
 
 				tableView.setItems(list);
 				infoMsg("작업 완료", "게시글이 등록되었습니다.");
+				tableViewRefresh(); // 테이블뷰 새로고침
+				paging(); // 새로운 데이터에 따라 페이징처리
 				dialog.close();
 
 			});
@@ -167,7 +147,7 @@ public class BoardController implements Initializable {
 		});
 	}
 
-	//에러 메세지 창
+	// 에러 메세지 창
 	public void errMsg(String headerText, String msg) {
 		Alert errAlert = new Alert(AlertType.ERROR);
 		errAlert.setTitle("오류");
@@ -176,7 +156,7 @@ public class BoardController implements Initializable {
 		errAlert.showAndWait();
 	}
 
-	//알림창
+	// 알림창
 	private void infoMsg(String headerText, String msg) {
 		Alert infoAlert = new Alert(AlertType.INFORMATION);
 		infoAlert.setTitle("정보 확인");
@@ -259,6 +239,7 @@ public class BoardController implements Initializable {
 				return;
 			}
 			tableViewRefresh();
+			paging();
 			infoMsg("삭제 완료", "게시글을 삭제하였습니다.");
 			dialog.close();
 
@@ -316,10 +297,11 @@ public class BoardController implements Initializable {
 				boardService.updatePost(vo2);
 				if (boardService.updatePost(vo2) == 1) {
 					infoMsg("작업 완료!", "게시글 수정이 완료되었습니다.");
-				};
-				
-				tableViewRefresh();
+				}
+				;
 
+				tableViewRefresh();
+				paging();
 				dialog2.close();
 				dialog.close();
 			});
@@ -351,6 +333,33 @@ public class BoardController implements Initializable {
 		ObservableList<BoardVO> list = FXCollections.observableArrayList(boardService.getAllPostList());
 
 		tableView.setItems(list);
+
+	}
+
+	private void paging() {
+		pagination.setPageFactory(new Callback<Integer, Node>() {
+
+			@Override
+			public Node call(Integer pageIndex) {
+				from = pageIndex * itemsForPage;
+				to = from + itemsForPage - 1;
+				tableView.setItems(getTableViewData(from, to));
+
+				return tableView;
+			}
+
+			private ObservableList<BoardVO> getTableViewData(int from, int to) {
+				// 현재 페이지의 데이터 초기화
+				currentPageData = FXCollections.observableArrayList();
+
+				int totSize = allTableData.size();
+				for (int i = from; i <= to && i < totSize; i++) {
+					currentPageData.add(allTableData.get(i));
+				}
+
+				return currentPageData;
+			}
+		});
 
 	}
 
