@@ -6,8 +6,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class MamberMain extends Application {
 
+public class MamberMain extends Application {
+  	
     @Override
     public void start(Stage primaryStage) throws Exception {
 

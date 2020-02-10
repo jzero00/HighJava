@@ -38,85 +38,85 @@ public class ProdInfoController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-    	prod_id.setCellValueFactory(new PropertyValueFactory<>("prod_id"));
-    	prod_name.setCellValueFactory(new PropertyValueFactory<>("prod_name"));
-    	prod_lgu.setCellValueFactory(new PropertyValueFactory<>("prod_lgu"));
-    	prod_buyer.setCellValueFactory(new PropertyValueFactory<>("prod_buyer"));
-    	prod_cost.setCellValueFactory(new PropertyValueFactory<>("prod_cost"));
-    	prod_price.setCellValueFactory(new PropertyValueFactory<>("prod_price"));
-    	prod_sale.setCellValueFactory(new PropertyValueFactory<>("prod_sale"));
-    	prod_outline.setCellValueFactory(new PropertyValueFactory<>("prod_outline"));
-    	prod_detail.setCellValueFactory(new PropertyValueFactory<>("prod_detail"));
-    	
-    	ObservableList<LprodVO> com1Data = FXCollections.observableArrayList(lprodService.SelectLprodName());
-    	com1.setItems(com1Data);
-    	
-    	com1.setCellFactory(new Callback<ListView<LprodVO>, ListCell<LprodVO>>() {
+	prod_id.setCellValueFactory(new PropertyValueFactory<>("prod_id"));
+	prod_name.setCellValueFactory(new PropertyValueFactory<>("prod_name"));
+	prod_lgu.setCellValueFactory(new PropertyValueFactory<>("prod_lgu"));
+	prod_buyer.setCellValueFactory(new PropertyValueFactory<>("prod_buyer"));
+	prod_cost.setCellValueFactory(new PropertyValueFactory<>("prod_cost"));
+	prod_price.setCellValueFactory(new PropertyValueFactory<>("prod_price"));
+	prod_sale.setCellValueFactory(new PropertyValueFactory<>("prod_sale"));
+	prod_outline.setCellValueFactory(new PropertyValueFactory<>("prod_outline"));
+	prod_detail.setCellValueFactory(new PropertyValueFactory<>("prod_detail"));
 
-			@Override
-			public ListCell<LprodVO> call(ListView<LprodVO> param) {
+	ObservableList<LprodVO> com1Data = FXCollections.observableArrayList(lprodService.SelectLprodName());
+	com1.setItems(com1Data);
 
-				return new ListCell<LprodVO>() {
-					protected void updateItem(LprodVO item, boolean empty) {
-						super.updateItem(item, empty);
-						if(!empty) {
-							setText(item.getLprod_nm());
-						}
-					}
-				};
+	com1.setCellFactory(new Callback<ListView<LprodVO>, ListCell<LprodVO>>() {
+
+	    @Override
+	    public ListCell<LprodVO> call(ListView<LprodVO> param) {
+
+		return new ListCell<LprodVO>() {
+		    protected void updateItem(LprodVO item, boolean empty) {
+			super.updateItem(item, empty);
+			if(!empty) {
+			    setText(item.getLprod_nm());
 			}
-		});
-    	com1.setButtonCell(new ListCell<LprodVO>() {
-    		protected void updateItem(LprodVO item, boolean empty) {
-				super.updateItem(item, empty);
-				if(!empty) {
-					setText(item.getLprod_nm());
-				}
-			}
-    	});
-    	
+		    }
+		};
+	    }
+	});
+	com1.setButtonCell(new ListCell<LprodVO>() {
+	    protected void updateItem(LprodVO item, boolean empty) {
+		super.updateItem(item, empty);
+		if(!empty) {
+		    setText(item.getLprod_nm());
+		}
+	    }
+	});
+
     }
 
-	@FXML public void com1Selected(ActionEvent event) {
-		LprodVO vo = com1.getValue();
-		
-		ObservableList<LprodVO> com2Data = FXCollections.observableArrayList(lprodService.SelectProdName(vo.getLprod_nm()));
-		com2.setItems(com2Data);
-		
-		com2.setCellFactory(new Callback<ListView<LprodVO>, ListCell<LprodVO>>() {
+    @FXML public void com1Selected(ActionEvent event) {
+	LprodVO vo = com1.getValue();
 
-			@Override
-			public ListCell<LprodVO> call(ListView<LprodVO> param) {
-				return new ListCell<LprodVO>(){
-					protected void updateItem(LprodVO item, boolean empty) {
-						super.updateItem(item, empty);
-						if(!empty) {
-							setText(item.getProd_name());
-						}
-					}
-				};
-			}
-			
-		});
-		com2.setButtonCell(new ListCell<LprodVO>(){
-			protected void updateItem(LprodVO item, boolean empty) {
-				super.updateItem(item, empty);
-				if(!empty) {
-					setText(item.getProd_name());
-				}
-			}
-		});
-	}
+	ObservableList<LprodVO> com2Data = FXCollections.observableArrayList(lprodService.SelectProdName(vo.getLprod_nm()));
+	com2.setItems(com2Data);
 
-	@FXML public void com2Selected(ActionEvent event) {
-		
-		LprodVO vo = com2.getValue();
-		ObservableList<LprodVO> listView = FXCollections.observableArrayList(vo);
-		table.setItems(listView);
-		
-	}
-	
-	
-	
-	
+	com2.setCellFactory(new Callback<ListView<LprodVO>, ListCell<LprodVO>>() {
+
+	    @Override
+	    public ListCell<LprodVO> call(ListView<LprodVO> param) {
+		return new ListCell<LprodVO>(){
+		    protected void updateItem(LprodVO item, boolean empty) {
+			super.updateItem(item, empty);
+			if(!empty) {
+			    setText(item.getProd_name());
+			}
+		    }
+		};
+	    }
+
+	});
+	com2.setButtonCell(new ListCell<LprodVO>(){
+	    protected void updateItem(LprodVO item, boolean empty) {
+		super.updateItem(item, empty);
+		if(!empty) {
+		    setText(item.getProd_name());
+		}
+	    }
+	});
+    }
+
+    @FXML public void com2Selected(ActionEvent event) {
+
+	LprodVO vo = com2.getValue();
+	ObservableList<LprodVO> listView = FXCollections.observableArrayList(vo);
+	table.setItems(listView);
+
+    }
+
+
+
+
 }

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity"
+	minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+	prefWidth="309.0" xmlns="http://javafx.com/javafx/8"
+	xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<HBox alignment="CENTER_LEFT" prefHeight="100.0"
+			prefWidth="200.0" spacing="20.0">
+			<children>
+				<Text strokeType="OUTSIDE" strokeWidth="0.0" text="아 이 디">
+					<HBox.margin>
+						<Insets left="50.0" />
+					</HBox.margin>
+				</Text>
+				<TextField fx:id="id" />
+			</children>
+			<opaqueInsets>
+				<Insets />
+			</opaqueInsets>
+		</HBox>
+		<HBox alignment="CENTER_LEFT" prefHeight="100.0"
+			prefWidth="200.0" spacing="20.0">
+			<children>
+				<Text strokeType="OUTSIDE" strokeWidth="0.0" text="이      름">
+					<HBox.margin>
+						<Insets left="50.0" />
+					</HBox.margin>
+				</Text>
+				<TextField fx:id="name" />
+			</children>
+			<opaqueInsets>
+				<Insets />
+			</opaqueInsets>
+		</HBox>
+		<HBox alignment="CENTER_LEFT" prefHeight="100.0"
+			prefWidth="200.0" spacing="20.0">
+			<children>
+				<Text strokeType="OUTSIDE" strokeWidth="0.0" text="전화번호">
+					<HBox.margin>
+						<Insets left="50.0" />
+					</HBox.margin>
+				</Text>
+				<TextField fx:id="tel" />
+			</children>
+			<opaqueInsets>
+				<Insets />
+			</opaqueInsets>
+		</HBox>
+		<HBox alignment="CENTER_LEFT" prefHeight="100.0"
+			prefWidth="200.0" spacing="20.0">
+			<children>
+				<Text strokeType="OUTSIDE" strokeWidth="0.0" text="주      소">
+					<HBox.margin>
+						<Insets left="50.0" />
+					</HBox.margin>
+				</Text>
+				<TextField fx:id="addr" />
+			</children>
+			<opaqueInsets>
+				<Insets />
+			</opaqueInsets>
+		</HBox>
+		<HBox alignment="CENTER_RIGHT" prefHeight="50.0"
+			prefWidth="309.0" spacing="20.0">
+			<opaqueInsets>
+				<Insets />
+			</opaqueInsets>
+			<children>
+				<Button fx:id="btnOk" mnemonicParsing="false" text="확인" />
+				<Button fx:id="btnCancel" mnemonicParsing="false" text="취소" />
+			</children>
+			<padding>
+				<Insets right="20.0" />
+			</padding>
+		</HBox>
+	</children>
+</VBox>

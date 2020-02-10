@@ -20,8 +20,8 @@ public class UdpFileSender {
             System.out.println("파일이 존재하지 않습니다.");
             System.exit(0);
         }
-        long fileSize = file.length();
-        long totalReadBytes = 0;
+        long fileSize = file.length();	//파일의 바이트 수
+        long totalReadBytes = 0;	//보낸 전체 바이트 수
  
         double startTime = 0;  
         try {
