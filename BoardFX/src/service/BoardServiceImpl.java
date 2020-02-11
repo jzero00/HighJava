@@ -19,36 +19,36 @@ public class BoardServiceImpl implements BoardService {
 		return instance;
 	}
 
-	BoardDao bdDao = BoardDaoImpl.getInstance();
+	BoardDao boardDao = BoardDaoImpl.getInstance();
 	
 	@Override
 	public int regPost(BoardVO bv) {
-		return bdDao.regPost(bv);
+		return boardDao.regPost(bv);
 	}
 
 	@Override
 	public boolean getPost(int board_no) {
-		return bdDao.getPost(board_no);
+		return boardDao.getPost(board_no);
 	}
 
 	@Override
 	public int updatePost(BoardVO bv) {
-		return bdDao.updatePost(bv);
+		return boardDao.updatePost(bv);
 	}
 
 	@Override
 	public List<BoardVO> getAllPostList() {
-		return bdDao.getAllPostList();
+		return boardDao.getAllPostList();
 	}
 
 	@Override
 	public int deletePost(int board_no) {
-		return bdDao.deletePost(board_no);
+		return boardDao.deletePost(board_no);
 	}
 
 	@Override
 	public List<BoardVO> searchPost(BoardVO bv) {
-		return bdDao.searchPost(bv);
+		return boardDao.searchPost(bv);
 	}
 
 }

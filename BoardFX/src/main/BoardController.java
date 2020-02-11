@@ -68,7 +68,10 @@ public class BoardController implements Initializable {
 	board_date.setCellValueFactory(new PropertyValueFactory<>("board_date"));
 
 	// 메인 테이블 데이터 설정
+
+	
 	allTableData.addAll(boardService.getAllPostList());
+	tableView.setItems(allTableData);
 
 	itemsForPage = 10; // 한페이지에 보여줄 항목 수 설정
 	int totPageCount = allTableData.size() % itemsForPage == 0 ? allTableData.size() / itemsForPage
@@ -126,11 +129,12 @@ public class BoardController implements Initializable {
 		vo.setBoard_title(title.getText());
 		vo.setBoard_content(content.getText());
 		boardService.regPost(vo);
-		ObservableList<BoardVO> list = FXCollections.observableArrayList(boardService.getAllPostList());
 
-		tableView.setItems(list);
 		infoMsg("작업 완료", "게시글이 등록되었습니다.");
-		tableView.refresh();
+		ObservableList<BoardVO> tableData = FXCollections.observableArrayList();
+		
+		tableData.addAll(boardService.getAllPostList());
+		tableView.setItems(tableData);
 		paging(); // 새로운 데이터에 따라 페이징처리
 		dialog.close();
 
@@ -227,6 +231,8 @@ public class BoardController implements Initializable {
 		Alert alertInformation = new Alert(AlertType.INFORMATION);
 		alertInformation.setTitle("INFORMATION");
 		alertInformation.setContentText("삭제를 완료했습니다.");
+		allTableData.addAll(boardService.getAllPostList());
+		tableView.setItems(allTableData);
 		alertInformation.showAndWait(); // Alert창 보이기
 
 	    } else if (confirmResult == ButtonType.CANCEL) {
@@ -237,7 +243,8 @@ public class BoardController implements Initializable {
 		alertInformation.showAndWait(); // Alert창 보이기
 		return;
 	    }
-	    tableViewRefresh();
+	    allTableData.addAll(boardService.getAllPostList());
+	    tableView.setItems(allTableData);
 	    paging();
 	    infoMsg("삭제 완료", "게시글을 삭제하였습니다.");
 	    dialog.close();
@@ -298,8 +305,8 @@ public class BoardController implements Initializable {
 		    infoMsg("작업 완료!", "게시글 수정이 완료되었습니다.");
 		}
 		;
-
-		tableViewRefresh();
+		allTableData.addAll(boardService.getAllPostList());
+		tableView.setItems(allTableData);
 		paging();
 		dialog2.close();
 		dialog.close();
@@ -322,17 +329,6 @@ public class BoardController implements Initializable {
 	dialog.setScene(scene);
 	dialog.setResizable(false);// 크기고정
 	dialog.show();
-    }
-
-    /**
-     * tableView의 변화를 새로고침해주는 메소드
-     */
-    private void tableViewRefresh() {
-
-	ObservableList<BoardVO> list = FXCollections.observableArrayList(boardService.getAllPostList());
-
-	tableView.setItems(list);
-
     }
 
     private void paging() {
