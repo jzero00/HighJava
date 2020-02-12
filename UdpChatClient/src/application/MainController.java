@@ -24,6 +24,7 @@ public class MainController implements Initializable{
     @FXML private TextField tfChat;
 
     private DatagramSocket socket = null;
+  //데이터가 저장될 공간으로 byte배열을 생성한다.
     private byte[] msg = new byte[100];
 
     InetAddress serverAddress = null;
@@ -37,6 +38,7 @@ public class MainController implements Initializable{
 	    String chatName = showPromptWindow(); // 대화명을 입력받는다.
 
 	    // 대화명 전송
+	  //DatagramPacket을 수신한다.
 	    DatagramPacket outPacket = 
 		    new DatagramPacket(chatName.getBytes(), chatName.getBytes().length, serverAddress, 7777);
 	    socket.send(outPacket);
@@ -88,6 +90,7 @@ public class MainController implements Initializable{
 	String message = tfChat.getText();
 	DatagramPacket outPacket = new DatagramPacket(message.getBytes(), message.getBytes().length, serverAddress, 7777);
 	try {
+	  //DatagramPacket을 전송한다.
 	    socket.send(outPacket);
 	} catch (IOException e) {
 	    e.printStackTrace();

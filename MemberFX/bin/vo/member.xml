@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+			PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+			"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<!-- namespace속성 : 아래에서 작성한 SQL문을 호출할 때 같이 사용된다 -->
+<sqlMap namespace="member">
+
+	<insert id="insertMember"
+		parameterClass="vo.MemberVO">
+
+		INSERT INTO mymember (mem_id, mem_name, mem_tel,mem_addr)
+		VALUES (#mem_id#, #mem_name#, #mem_tel#, #mem_addr#)
+
+	</insert>
+
+	<!-- update 연습 -->
+	<update id="updateMember" parameterClass="memVO">
+
+		UPDATE mymember SET
+		mem_name = #mem_name#,
+		mem_tel = #mem_tel#,
+		mem_addr = #mem_addr#
+		WHERE
+		mem_id = #mem_id#
+
+	</update>
+
+	<!-- delete 연습 -->
+	<delete id="deleteMember" parameterClass="String">
+
+		DELETE FROM mymember
+		WHERE mem_id = #qwerty#
+
+	</delete>
+
+	<!-- SELECT 연습 -->
+	<select id="getMemberAll" resultClass="memVO">
+
+		SELECT * FROM mymember
+
+	</select>
+
+	<select id="getMember" parameterClass="String" resultClass="int">
+
+		SELECT COUNT(*) AS cnt FROM mymember WHERE mem_id = #mem_id#
+
+	</select>
+
+	<select id="getSearchMember" parameterClass="memVO"
+	resultClass="memVO">
+		SELECT * FROM mymember
+		WHERE 1=1 
+		<isNotEmpty property="mem_id">	<!-- null도 아니고 공백도 아닐때 실행 -->
+		AND mem_id = #mem_id#
+		</isNotEmpty>
+		
+		<isNotEmpty property="mem_name">
+		AND mem_name = #mem_name#
+		</isNotEmpty>
+		
+		<isNotEmpty property="mem_tel">	
+		AND mem_tel = #mem_tel#
+		</isNotEmpty>
+		
+		<isNotEmpty property="mem_addr">
+		AND mem_addr LIKE '%' || #mem_addr# || '%'
+		</isNotEmpty>
+		
+
+	</select>
+</sqlMap>			
+
+
+
+
+

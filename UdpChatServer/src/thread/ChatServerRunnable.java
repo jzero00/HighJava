@@ -42,6 +42,7 @@ public class ChatServerRunnable implements Runnable{
 
     public void run(){
 	while(isServerOn){
+	    //보내는 메
 	    byte[] inMsg = new byte[100];
 	    DatagramPacket inPacket = new DatagramPacket(inMsg, inMsg.length);
 	    try {
@@ -102,7 +103,7 @@ public class ChatServerRunnable implements Runnable{
 	}
 
     }
-
+//클라이언트가 서버를 껐을때 실행되는 메소드
     public void turnOffServer(){
 	isServerOn = false;
     }

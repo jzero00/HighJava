@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
+	minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+	prefWidth="600.0" xmlns="http://javafx.com/javafx/8"
+	xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainPage">
+	<children>
+		<Text strokeType="OUTSIDE" strokeWidth="0.0" text="회원관리"
+			textAlignment="CENTER">
+			<VBox.margin>
+				<Insets bottom="10.0" />
+			</VBox.margin>
+		</Text>
+		<TableView fx:id="tableView" prefHeight="315.0"
+			prefWidth="600.0">
+			<columns>
+				<TableColumn fx:id="memName" prefWidth="107.0" text="이름" />
+				<TableColumn fx:id="memTel" prefWidth="251.0"
+					text="전화번호" />
+				<TableColumn fx:id="memAddr" prefWidth="221.0" text="주소" />
+			</columns>
+		</TableView>
+		<HBox alignment="CENTER_RIGHT" prefHeight="57.0"
+			prefWidth="600.0" spacing="20.0">
+			<children>
+				<Button fx:id="btnAdd" onAction="#addMem" mnemonicParsing="false" text="회원추가" />
+				<Button fx:id="btnEdi" onAction="#ediMem" mnemonicParsing="false" text="회원수정" />
+				<Button fx:id="btnDel" mnemonicParsing="false" text="회원삭제" />
+				<Button mnemonicParsing="false" text="Button">
+					<HBox.margin>
+						<Insets right="20.0" />
+					</HBox.margin>
+				</Button>
+			</children>
+		</HBox>
+	</children>
+	<padding>
+		<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+	</padding>
+</VBox>

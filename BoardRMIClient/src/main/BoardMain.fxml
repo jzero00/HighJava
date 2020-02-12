@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
+	minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0"
+	prefWidth="600.0" xmlns="http://javafx.com/javafx/8"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="main.BoardController">
+	<children>
+		<TableView fx:id="tableView" layoutX="20.0" layoutY="20.0"
+			onMouseClicked="#onclick" prefHeight="370.0" prefWidth="560.0">
+			<columns>
+				<TableColumn fx:id="board_no" prefWidth="84.0" text="번호" />
+				<TableColumn fx:id="board_title" prefWidth="364.0"
+					text="제목" />
+				<TableColumn fx:id="board_date" prefWidth="91.0"
+					text="작성일" />
+			</columns>
+			<padding>
+				<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+			</padding>
+		</TableView>
+		<Pagination fx:id="pagination" layoutX="1.0" layoutY="1.0"
+			prefHeight="500.0" prefWidth="600.0">
+			<padding>
+				<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+			</padding>
+		</Pagination>
+		<Button fx:id="btn_reg" layoutX="464.0" layoutY="440.0"
+			mnemonicParsing="false" onAction="#btn_regPushed" text="게시글 등록" />
+	</children>
+</AnchorPane>
