@@ -65,7 +65,8 @@
 				<Insets />
 			</opaqueInsets>
 			<children>
-				<Button fx:id="btnOk" mnemonicParsing="false" text="확인" />
+				<Button fx:id="btnEdit" mnemonicParsing="false" text="수정" />
+				<Button fx:id="btnDel" mnemonicParsing="false" text="삭제" />
 				<Button fx:id="btnCancel" mnemonicParsing="false" text="취소" />
 			</children>
 			<padding>

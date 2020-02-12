@@ -11,10 +11,9 @@ public class BoardVO {
 	private Date board_date;	//게시글 작성일
 	private String board_content;	//게시글 내용
 	
-	public BoardVO(String text, String text2, String text3) {
+	public BoardVO(String board_writer, String board_content, String board_title) {
 	    // TODO Auto-generated constructor stub
 	}
-
 	public BoardVO() {
 	    // TODO Auto-generated constructor stub
 	}

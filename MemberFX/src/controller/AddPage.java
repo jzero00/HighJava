@@ -54,16 +54,16 @@ public class AddPage extends MainPage implements Initializable {
 		return;
 	    }
 
-	    MemberVO input = new MemberVO();
+	    MemberVO vo = new MemberVO();
 
-	    input.setMem_addr(addr.getText());
-	    input.setMem_id(id.getText());
-	    input.setMem_name(name.getText());
-	    input.setMem_tel(tel.getText());
+	    vo.setMem_addr(addr.getText());
+	    vo.setMem_id(id.getText());
+	    vo.setMem_name(name.getText());
+	    vo.setMem_tel(tel.getText());
 
-	    if (service.insertMember(input) == 1) {
+	    if (service.insertMember(vo) == 1) {
 		infoMsg("작업 완료", "회원추가 성공.");
-		tableView.getItems().add(input);
+		tableView.getItems().add(vo);
 		dialog.close();
 	    }
 	});
