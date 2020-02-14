@@ -76,7 +76,7 @@ public class TestTextToSpeech {
 	 * 서비스 실행
 	 */
 	private void executeService() {
-		String text = "Welcom to Java world! My name is Simpson. Nice to meet you. Have a nice day.";
+		String text = "Welcom to Java world! My name is Homer Simpson.";
 		
 		SynthesizeOptions synthesizeOptions = new SynthesizeOptions.Builder()
 		  .text(text)

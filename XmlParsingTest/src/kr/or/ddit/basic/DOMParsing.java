@@ -1,6 +1,5 @@
 package kr.or.ddit.basic;
 
-import javax.swing.plaf.synth.SynthSpinnerUI;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
