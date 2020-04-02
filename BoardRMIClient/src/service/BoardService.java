@@ -1,5 +1,6 @@
 package service;
 
+import java.rmi.Remote;
 import java.util.List;
 
 import vo.BoardVO;
@@ -11,7 +12,7 @@ import vo.BoardVO;
  * @author PC-05
  *
  */
-public interface BoardService {
+public interface BoardService extends Remote {
 
 	public int regPost(BoardVO bv);
 	

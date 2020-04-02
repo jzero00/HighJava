@@ -1,18 +1,27 @@
 package service;
 
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
 
 import dao.BoardDao;
 import dao.BoardDaoImpl;
 import vo.BoardVO;
 
-public class BoardServiceImpl implements BoardService {
+public class BoardServiceImpl extends UnicastRemoteObject implements BoardService {
 
+	protected BoardServiceImpl() throws RemoteException {
+	super();
+	// TODO Auto-generated constructor stub
+    }
+
+	/**
+     * 
+     */
+    private static final long serialVersionUID = 2407347762891601197L;
 	private static BoardServiceImpl instance;
 
-	private BoardServiceImpl(){}
-
-	public static BoardServiceImpl getInstance(){
+	public static BoardServiceImpl getInstance() throws RemoteException{
 		if(instance == null){
 			instance = new BoardServiceImpl();
 		}

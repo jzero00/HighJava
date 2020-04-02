@@ -2,6 +2,10 @@ package main;
 
 import java.io.IOException;
 import java.net.URL;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -30,13 +34,10 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import service.BoardService;
-import service.BoardServiceImpl;
 import vo.BoardVO;
 import javafx.scene.input.MouseEvent;
 
 public class BoardController implements Initializable {
-
-    BoardService boardService = BoardServiceImpl.getInstance();
 
     @FXML
     private Pagination pagination;
@@ -59,10 +60,20 @@ public class BoardController implements Initializable {
     private int from, to, itemsForPage;
 
     private ObservableList<BoardVO> allTableData, currentPageData;
-
+    BoardService boardService;
+    
+    Registry reg;
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+	try {
+	reg = LocateRegistry.getRegistry("localhost", 4869);
+	BoardService boardService = (BoardService) reg.lookup("boardService");
+	} catch (RemoteException | NotBoundException e) {
+	    e.printStackTrace();
+	}
+	
 	allTableData = FXCollections.observableArrayList();
 
 	board_no.setCellValueFactory(new PropertyValueFactory<>("board_no"));
@@ -78,9 +89,6 @@ public class BoardController implements Initializable {
 
     @FXML
     public void btn_regPushed(ActionEvent event) {
-
-//	BoardReg reg = new BoardReg();
-//	reg.registry(btn_reg, allTableData);
 	
 	btn_reg.setOnAction(e -> {
 	    // 게시글 등록창 띄우기
